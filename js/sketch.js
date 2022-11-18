@@ -5,12 +5,12 @@ function setup() {
 
 //current progress:
 //collision around one block working
+//keyboard inputs
 //need to add:
 //proper jumping instead of teleporting up
 //no infinite jumps
 //collisions working for an indefinite amount of blocks instead of being hardcoded to one
 //external document to add blocks (through for loop to go through them based on amount of blocks and variables for the coordinates)
-//keyboard inputs
 
 var gravity = 10;
 var speed = 5;
@@ -47,6 +47,7 @@ function draw() {
         if (x1 < 360){
             if (y1 > 700){
                 x1 = 350;
+                reset();
             }
         }
     }
@@ -59,11 +60,16 @@ function draw() {
 
 }
 
-function jump(){
-    isJumping = true;
-}
-
 function reset(){
     x1 = 1;
     y1 = 700;
+}
+
+function keyPressed(){
+    if (key === ' '){
+        isJumping = true;
+    }
+    if (key === 'a'){
+        reset();
+    }
 }
